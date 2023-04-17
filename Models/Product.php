@@ -1,20 +1,36 @@
 <?php
 
+/**
+ * Product
+ */
 class Product {
     private $name;
     private $price;
-
-    protected function __construct($_name, $_price)
+    
+    /**
+     * __construct
+     *
+     * @param  mixed $_name
+     * @param  mixed $_price
+     * @return void
+     */
+    public function __construct($_name, $_price)
     {
         $this->name = $_name;
         $this->price = $_price;
     }
-
-    protected function get_name(){
+    
+    /**
+     * get_name
+     */
+    public function get_name(){
         return $this->name;
     }
-
-    protected function get_price(){
+    
+    /**
+     * get_price
+     */
+    public function get_price(){
         return $this->price;
     }
 }
