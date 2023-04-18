@@ -1,14 +1,17 @@
 <?php
 
-require_once __DIR__ .'/Product.php';
+require_once __DIR__ . '/Product.php';
+// importo la Trait Size
+require_once __DIR__ . '/../Traits/Size.php';
 
 /**
  * Accessory
  */
 class Accessory extends Product 
 {
+    // uso la Trait Size
+    use Size;
     private $materials;
-    private $size;
 
     public function set_materials($_materials){
         $this->materials = $_materials;
@@ -16,14 +19,6 @@ class Accessory extends Product
 
     public function get_materials(){
         return $this->materials;
-    }
-
-    public function set_size($_size){
-        $this->size = $_size;
-    }
-
-    public function get_size(){
-        return $this->size;
     }
 }
 

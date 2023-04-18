@@ -30,13 +30,25 @@ $product3 = new Food(30, 'Croccantini', 'Lorem ipsum', $category_cat, 20.99, 'ht
 $product3->set_ingredients('pollo, cartone, manzo'); // per evitare di definire un nuovo costruttore in food
 $product3->set_weight(2);
 
-$product4 = new Food(50, 'Mangime', 'Lorem ipsum', $category_fish, 20.99, 'https://picsum.photos/600/600');
+$product4 = new Food(40, 'Mangime per pesci rossi', 'Lorem ipsum', $category_fish, 20.99, 'https://picsum.photos/600/600');
 $product4->set_ingredients('proteine, fibra'); // per evitare di definire un nuovo costruttore in food
 $product4->set_weight(0.2);
 
-$product5 = new Accessory(40, 'Collare', 'Lorem ipsum', $category_dog, 14.99, 'https://picsum.photos/600/600');
+$product5 = new Accessory(50, 'Collare', 'Lorem ipsum', $category_dog, 14.99, 'https://picsum.photos/600/600');
 $product5->set_materials('cotone, metallo');
 $product5->set_size('3 cm x 45 cm');
+
+$product6 = new Accessory(60, 'Cartucce filtranti', 'Lorem ipsum', $category_fish, 2.99, 'https://picsum.photos/600/600');
+$product6->set_materials('materiale espanso');
+$product6->set_size('ND');
+
+$product7 = new Accessory(70, 'Voliera in legno', 'Lorem ipsum', $category_bird, 185.99, 'https://picsum.photos/600/600');
+$product7->set_materials('legno, metallo');
+$product7->set_size('L 80 cm x H 153 cm x P 67 cm');
+
+$product8 = new Food(80, 'Mangime per pappagalli', 'Lorem ipsum', $category_bird, 10.99, 'https://picsum.photos/600/600');
+$product8->set_ingredients('cereali, frutta secca'); // per evitare di definire un nuovo costruttore in food
+$product8->set_weight(0.25);
 
 /*--------------------- /definisco i prodotti -------------------------*/
 
@@ -46,7 +58,10 @@ $products = [
     $product2,
     $product3,
     $product4,
-    $product5
+    $product5,
+    $product6,
+    $product7,
+    $product8
 ];
 
 ?>
@@ -74,11 +89,10 @@ $products = [
                     <div class="card my-3" style="width: 18rem;">
                         <img src="<?php echo $product->get_image(); ?>" class="card-img-top" alt="#">
                         <div class="card-body">
-                            <h3 class="card-title"><?php echo $product->get_name() ?></h3>
-                            <!-- <h4><?php echo $product->get_category()->get_name(); //chain di due metodi 
-                                        ?></h4> -->
-                            <h4><?php echo $product->get_category()->get_category_info(); //chain di due metodi 
-                                ?></h4>
+                            <h4 class="card-title"><?php echo $product->get_name() ?></h4>
+                            <!-- <h4><?php echo $product->get_category()->get_name(); //chain di due metodi ?></h4> -->
+                            <h6><?php echo $product->get_category()->get_category_info(); //chain di due metodi 
+                                ?></h6>
 
                             <p class="card-text"><?php echo $product->get_description() ?></p>
                             <!-- Ingredients -->
