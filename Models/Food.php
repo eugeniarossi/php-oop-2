@@ -10,7 +10,12 @@ class Food extends Product // ereditarietà / ha bisogno di un costruttore ma lo
     private $weight;
     private $ingredients;
 
+    // throw exception
     public function set_weight($_weight){
+        if(!is_numeric($_weight)) {
+            throw new Exception('Error: Weight is not a number');
+        }
+
         $this->weight = $_weight;
     }
 

@@ -46,9 +46,21 @@ $product7 = new Accessory(70, 'Voliera in legno', 'Lorem ipsum', $category_bird,
 $product7->set_materials('legno, metallo');
 $product7->set_size('L 80 cm x H 153 cm x P 67 cm');
 
-$product8 = new Food(80, 'Mangime per pappagalli', 'Lorem ipsum', $category_bird, 10.99, 'https://picsum.photos/600/600');
+// gestisco exception
+try {
+    $product8 = new Food(80, 'Mangime per pappagalli', 'Lorem ipsum', $category_bird, 10.99, 'https://picsum.photos/600/600');
+} catch (Exception $e) {
+    echo $e->getMessage();
+};
+
 $product8->set_ingredients('cereali, frutta secca'); // per evitare di definire un nuovo costruttore in food
-$product8->set_weight(0.25);
+// gestisco exception
+try {
+    $product8->set_weight('0.25');
+} catch (Exception $e) {
+    echo $e->getMessage();
+};
+
 
 /*--------------------- /definisco i prodotti -------------------------*/
 
@@ -91,10 +103,10 @@ $products = [
                         <div class="card-body">
                             <h4 class="card-title"><?php echo $product->get_name() ?></h4>
                             <!-- <h4><?php echo $product->get_category()->get_name(); //chain di due metodi ?></h4> -->
-                            <h6><?php echo $product->get_category()->get_category_info(); //chain di due metodi 
-                                ?></h6>
+                            <h6><?php echo $product->get_category()->get_category_info(); //chain di due metodi ?></h6>
 
-                            <p class="card-text"><?php echo $product->get_description() ?></p>
+                            <p class="card-text"><?php echo $product->get_description(); ?></p>
+                            <p class="card-text"><?php echo "€ {$product->get_price()}"; ?></p>
                             <!-- Ingredients -->
                             <?php if (method_exists($product, 'get_ingredients')) : ?> <!-- se il metodo esiste stampa ingredients -->
                                 <p class="card-text"><?php

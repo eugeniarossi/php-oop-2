@@ -40,7 +40,7 @@ class Product
         $this->name = $_name;
         $this->description = $_description;
         $this->category = $_category;
-        $this->price = $_price;
+        $this->set_price($_price);
         $this->image = $_image;
     }
     
@@ -94,10 +94,20 @@ class Product
     public function get_price(){
         return $this->price;
     }
-
+/*
     public function set_price($_price){
         $this->price = $_price;
+    }*/
+
+    // throw exception
+    public function set_price($_price) {
+        if (!is_float($_price)) {
+            throw new Exception('Error: Price is not a float');
+        }
+
+        $this->price = $_price;
     }
+    
 
     public function get_image(){
         return $this->image;
