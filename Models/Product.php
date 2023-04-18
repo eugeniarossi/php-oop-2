@@ -1,13 +1,23 @@
 <?php
 
+require_once __DIR__ . '/../Traits/Name.php';
+
 /**
  * Product
  * Define the default Product
  */
 class Product 
 {
+    use Name;
+
+    /* PER MODIFICARE get_name NELLA TRAITS =
+    creo un ALIAS al get_name all'interno della TRAIT
+    use Name {
+        Name::get_name as get_trait_name;
+    }
+    */
+
     private $id;
-    private $name;
     private $description;
     private $category; // (cane/gatto/pesce...)
     private $price;
@@ -53,6 +63,7 @@ class Product
         $this->id = $_id;
     }
 
+    /*  SOSTITUITO DA TRAIT
     public function get_name(){
         return $this->name;
     }
@@ -60,6 +71,9 @@ class Product
     public function set_name($_name){
         $this->name = $_name;
     }
+
+    se ridefinisco get_name e set_name sovrascrivo la TRAIT
+*/ 
 
     public function get_description(){
         return $this->description;
@@ -92,6 +106,12 @@ class Product
     public function set_image($_image){
         $this->image = $_image;
     }
+
+    /* MODIFICO L'ALIAS DEL TRAIT
+    public function get_name(){
+        return $this->get_trait_name;
+    }
+    */
 }
 
 ?>
