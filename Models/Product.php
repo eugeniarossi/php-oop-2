@@ -10,7 +10,7 @@ class Product
 {
     use Name;
 
-    /* PER MODIFICARE get_name NELLA TRAITS =
+    /* PER MODIFICARE get_name NELLA TRAIT =
     creo un ALIAS al get_name all'interno della TRAIT
     use Name {
         Name::get_name as get_trait_name;

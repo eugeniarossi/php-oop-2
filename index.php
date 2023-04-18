@@ -23,11 +23,11 @@ $product1->set_materials('cotone, metallo');
 $product1->set_size('3 cm x 300 cm');
 
 $product2 = new Toy(20, 'Osso di gomma', 'Lorem ipsum', $category_dog, 5.99, 'https://picsum.photos/600/600');
-$product2->set_features('Galleggia e rimbalza');
+$product2->set_features('galleggia e rimbalza');
 $product2->set_size('4 cm x 10 cm');
 
 $product3 = new Food(30, 'Croccantini', 'Lorem ipsum', $category_cat, 20.99, 'https://picsum.photos/600/600');
-$product3->set_ingredients('pollo, cartone, manzo'); // per evitare di definire un nuovo costruttore in food
+$product3->set_ingredients('pollo, manzo'); // per evitare di definire un nuovo costruttore in food
 $product3->set_weight(2);
 
 $product4 = new Food(40, 'Mangime per pesci rossi', 'Lorem ipsum', $category_fish, 20.99, 'https://picsum.photos/600/600');
@@ -110,9 +110,9 @@ $products = [
                             <!-- Ingredients -->
                             <?php if (method_exists($product, 'get_ingredients')) : ?> <!-- se il metodo esiste stampa ingredients -->
                                 <p class="card-text"><?php
-                                                        /** @var Food $product */  //elimina errore intelephense
-                                                        echo "Ingredienti: {$product->get_ingredients()}";
-                                                        ?></p>
+                                    /** @var Food $product */  //elimina errore intelephense
+                                    echo "Ingredienti: {$product->get_ingredients()}";
+                                ?></p>
                             <?php endif; ?>
                             <!-- /Ingredients -->
                             <!-- Weight -->
